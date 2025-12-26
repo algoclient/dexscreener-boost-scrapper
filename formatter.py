@@ -203,7 +203,9 @@ class MessageFormatter:
                 else:
                     platform = dex_id.capitalize()
             else:
-                platform = "Pump.fun 🔗 SOL"
+                if token_data:
+                    dex_id = token_data.get("dexId", "").lower()
+                platform = dex_id.capitalize() if token_data else "N/A"
 
             dexscreener_url = f"https://dexscreener.com/{TARGET_CHAIN}/{token_address}"
 
