@@ -1,3 +1,4 @@
+
 """
 Utilities for building nicely‑formatted messages for the Telegram bot.
 
@@ -24,7 +25,7 @@ the DexScreener URL.
 import logging
 from datetime import datetime
 from typing import Optional, Dict
-
+import traceback
 from config import TARGET_CHAIN
 
 logger = logging.getLogger(__name__)
@@ -231,7 +232,6 @@ class MessageFormatter:
             return message
         except Exception as e:
             logger.error(f"Error formatting message: {e}")
-            import traceback
 
             logger.error(traceback.format_exc())
             return None
